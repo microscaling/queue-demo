@@ -1,0 +1,23 @@
+queue:
+  image: nsqio/nsq:v0.3.7
+  ports:
+    - "4150:4150"
+    - "4151:4151"
+  command: "/nsqd"
+consumer:
+  build: .
+  command: "consumer"
+  links:
+    - queue
+  environment:
+    - QUEUE_ENDPOINT=queue:4150
+    - TOPIC_NAME=microscaling
+    - CHANNEL_NAME=demo
+producer:
+  build: .
+  command: "producer"
+  links:
+    - queue
+  environment:
+    - QUEUE_ENDPOINT=queue:4150
+    - TOPIC_NAME=microscaling
