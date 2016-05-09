@@ -12,13 +12,15 @@ RUN apk update && \
 
 # Cache installing gems
 WORKDIR /tmp
-ADD Gemfile* /tmp/
+COPY Gemfile* /tmp/
 
 RUN bundle install
 
 # Create working directory.
 WORKDIR /app
+
 COPY . ./
+COPY marathon/ /apps/marathon/
 
 ENTRYPOINT ["bundle", "exec", "rake"]
 
