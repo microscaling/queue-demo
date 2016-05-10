@@ -3,7 +3,8 @@ require 'uri'
 
 # Helper class for creating and destroying Marathon Apps using the REST API.
 class Marathon
-  MARATHON_APPS = ['consumer', 'producer', 'queue', 'remainder']
+  # Apps need to be started in this order.
+  MARATHON_APPS = ['queue', 'remainder', 'producer', 'consumer']
 
   # Template variables for microscaling.json
   USER_ID_VAR = '__MSS_USER_ID__'
@@ -12,20 +13,20 @@ class Marathon
 
   # Create the Marathon Apps needed for the demo using the REST API.
   def self.create_apps(user_id, microscaling_api, marathon_api)
-    create_microscaling_app(user_id, microscaling_api, marathon_api)
-
     MARATHON_APPS.each do |app_name|
       create_app(marathon_api, app_name) unless app_exists?(marathon_api, app_name)
     end
+
+    create_microscaling_app(user_id, microscaling_api, marathon_api)
   end
 
   # Deletes the demo apps from Marathon using the REST API.
   def self.destroy_apps(marathon_api)
-    destroy_app(marathon_api, 'microscaling')
-
     MARATHON_APPS.each do |app_name|
       destroy_app(marathon_api, app_name) if app_exists?(marathon_api, app_name)
     end
+
+    destroy_app(marathon_api, 'microscaling')
   end
 
 private
