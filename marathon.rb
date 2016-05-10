@@ -53,6 +53,8 @@ private
                                   initheader = { 'Content-Type' => 'application/json' })
     req.body = app_json
     resp = http.request(req)
+
+    puts "Created #{app_name} app"
   end
 
   # Delete a Marathon App using the REST API.
@@ -63,6 +65,8 @@ private
     req = Net::HTTP::Delete.new(uri.path,
                                 initheader = { 'Content-Type' => 'application/json' })
     resp = http.request(req)
+
+    puts "Destroyed #{app_name} app"
   end
 
   # Checks whether the app exists by calling the Marathon API.

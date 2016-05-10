@@ -3,7 +3,7 @@
     "cmd": "/nsqd",
     "instances": 1,
     "cpus": 0.1,
-    "mem": 100,
+    "mem": 50,
     "container": {
         "type": "DOCKER",
         "docker": {

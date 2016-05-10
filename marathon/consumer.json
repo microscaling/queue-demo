@@ -1,8 +1,8 @@
 {
     "id": "consumer",
     "instances": 1,
-    "cpus": 0.1,
-    "mem": 100,
+    "cpus": 0.05,
+    "mem": 50,
     "container": {
         "type": "DOCKER",
         "docker": {
