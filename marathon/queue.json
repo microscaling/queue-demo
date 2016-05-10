@@ -8,11 +8,17 @@
         "type": "DOCKER",
         "docker": {
             "image": "nsqio/nsq:v0.3.7",
-      "network": "BRIDGE",
-      "portMappings": [
-        { "containerPort": 4150, "hostPort": 4150 },
-        { "containerPort": 4151, "hostPort": 4151 }
-      ]
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 4150,
+                    "hostPort": 4150
+                },
+                {
+                    "containerPort": 4151,
+                    "hostPort": 4151
+                }
+            ]
         }
     }
 }
