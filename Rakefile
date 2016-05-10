@@ -6,7 +6,8 @@ require_relative 'marathon.rb'
 # Default values if environment variables are not set.
 DEFAULTS = {
   'MSS_QUEUE_ENDPOINT' => '127.0.0.1:4150',
-  'MSS_QUEUE_NAME' => 'microscaling-demo',
+  'MSS_TOPIC_NAME' => 'microscaling-demo',
+  'MSS_CHANNEL_NAME' => 'microscaling-demo',
   'MSS_PRODUCER_SLEEP_MS' => '100',
   'MSS_CONSUMER_SLEEP_MS' => '300',
   'MSS_API_ADDRESS' => 'app.microscaling.com'
@@ -44,7 +45,7 @@ task :producer do |task|
     # Connect to NSQ.
     producer = Nsq::Producer.new(
       nsqd: env_or_default('MSS_QUEUE_ENDPOINT'),
-      topic: env_or_default('MSS_QUEUE_NAME')
+      topic: env_or_default('MSS_TOPIC_NAME')
     )
 
     # Send messages in an infinite loop.
@@ -79,8 +80,8 @@ task :consumer do |task|
     # Connect to NSQ.
     consumer = Nsq::Consumer.new(
       nsqd: env_or_default('MSS_QUEUE_ENDPOINT'),
-      topic: env_or_default('MSS_QUEUE_NAME'),
-      channel: env_or_default('MSS_QUEUE_NAME')
+      topic: env_or_default('MSS_TOPIC_NAME'),
+      channel: env_or_default('MSS_CHANNEL_NAME')
     )
 
     # Listen for messages in an infinite loop.
