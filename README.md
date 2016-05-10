@@ -1,6 +1,8 @@
 # Microscaling queue-demo
 
-Simple demo for showing how the [Microscaling agent](https://github.com/microscaling/microscaling) can scale a queue to maintain a target length. Demo currently supports [NSQ](http://nsq.io/) (more queues will be supported soon). The demo is implemented in Ruby and intended to be run as a Docker container.
+Simple demo for showing how the [Microscaling agent](https://github.com/microscaling/microscaling) can scale a queue to maintain a target length. Demo currently supports [NSQ](http://nsq.io/) (more queues will be added soon). The demo is implemented in Ruby and intended to be run as a Docker container.
+
+Full instructions for running the demo are at [app.microscaling.com](https://app.microscaling.com).
 
 [![](https://badge.imagelayers.io/microscaling/queue-demo:latest.svg)](https://imagelayers.io/?images=microscaling/queue-demo:latest 'Get your own badge on imagelayers.io')
 
