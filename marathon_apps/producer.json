@@ -1,0 +1,23 @@
+{
+    "id": "producer",
+    "instances": 3,
+    "cpus": 0.05,
+    "mem": 100,
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "rgardler/acs-logging-test-simulate"
+        }
+    },
+    "env": {
+        "SIMULATION_ACTIONS": "0",
+        "SIMULATION_DELAY": "1",
+        "AZURE_LOGGING_QUEUE_TYPE": "AzureStorageQueue",
+        "AZURE_STORAGE_ACCOUNT_NAME": "__AZURE_STORAGE_ACCOUNT_NAME__",
+        "AZURE_STORAGE_ACCOUNT_KEY": "__AZURE_STORAGE_ACCOUNT_KEY__",
+        "AZURE_STORAGE_QUEUE_NAME": "__AZURE_STORAGE_QUEUE_NAME__",
+        "ANALYZER_KEEP_RUNNING": "true",
+        "ANALYZER_SLEEP_TIME": "0.1",
+        "SLACK_WEBHOOK": "https://hooks.slack.com/services/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"
+    }
+}
