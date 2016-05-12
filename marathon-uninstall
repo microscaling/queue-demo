@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require File.join(File.dirname(__FILE__), 'marathon.rb')
+
+begin
+  Marathon.delete_apps
+
+rescue StandardError => e
+  puts "ERROR: #{e.inspect}"
+  puts e.backtrace
+end
