@@ -1,8 +1,8 @@
 {
     "id": "remainder",
     "instances": 1,
-    "cpus": 0.1,
-    "mem": 100,
+    "cpus": 0.02,
+    "mem": 25,
     "container": {
         "type": "DOCKER",
         "docker": {

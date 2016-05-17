@@ -9,8 +9,7 @@ DEFAULTS = {
   'MSS_TOPIC_NAME' => 'microscaling-demo',
   'MSS_CHANNEL_NAME' => 'microscaling-demo',
   'MSS_PRODUCER_SLEEP_MS' => '100',
-  'MSS_CONSUMER_SLEEP_MS' => '300',
-  'MSS_API_ADDRESS' => 'app.microscaling.com'
+  'MSS_CONSUMER_SLEEP_MS' => '300'
 }
 
 # Get environment variable if set or return the default.
@@ -19,15 +18,6 @@ def env_or_default(var_name)
     result = ENV[var_name]
   else
     result = DEFAULTS[var_name]
-  end
-end
-
-# Get environment variable or error if it is not set.
-def env_or_error(var_name)
-  if ENV.has_key?(var_name)
-    result = ENV[var_name]
-  else
-    raise("Must provide environment variable #{var_name}")
   end
 end
 
@@ -106,32 +96,5 @@ task :consumer do |task|
       consumer.terminate
       puts 'Connection closed'
     end
-  end
-end
-
-desc 'Create demo apps in Marathon'
-task :marathon_setup do |task|
-  begin
-    microscaling_api = env_or_default('MSS_API_ADDRESS')
-    user_id = env_or_error('MSS_USER_ID')
-    marathon_api = env_or_error('MSS_MARATHON_API')
-
-    Marathon.create_apps(user_id, microscaling_api, marathon_api)
-
-  rescue StandardError => e
-    puts "ERROR: #{e.inspect}"
-    puts e.backtrace
-  end
-end
-
-desc 'Delete demo apps from Marathon'
-task :marathon_teardown do |task|
-  begin
-    marathon_api = env_or_error('MSS_MARATHON_API')
-    Marathon.destroy_apps(marathon_api)
-
-  rescue StandardError => e
-    puts "ERROR: #{e.inspect}"
-    puts e.backtrace
   end
 end
