@@ -18,6 +18,10 @@ Deletes the demo apps using the Marathon REST API.
 
 Used for the [microscaling/queue-demo](https://hub.docker.com/r/microscaling/queue-demo/) Docker image.
 
+Simple demo for showing how the [Microscaling Engine](https://github.com/microscaling/microscaling) can scale a queue to maintain a target length. Demo currently supports [NSQ](http://nsq.io/) (more queues will be added soon). It is implemented in Ruby and intended to be run as a Docker container.
+
+Full instructions for running the demo are at [app.microscaling.com](https://app.microscaling.com).
+
 [![](https://badge.imagelayers.io/microscaling/queue-demo:latest.svg)](https://imagelayers.io/?images=microscaling/queue-demo:latest 'Get your own badge on imagelayers.io')
 
 Each Docker command is shown along with its environment variables and default values.
