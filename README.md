@@ -4,7 +4,7 @@ Supporting demo images for the [Microscaling Engine](https://github.com/microsca
 
 ## Marathon Demo with Azure Storage Queue
 
-The marathon-install and marathon-uninstall commands creates the Marathon demo apps using its REST API. See this blog post (TODO) for more details. To run the commands you need Ruby but there are no other dependencies.
+The marathon-install and marathon-uninstall commands creates the Marathon demo apps using its REST API. See this [blog post](http://blog.microscaling.com/2016/05/microscaling-marathon-with-dcos-on.html) for more details. To run the commands you need Ruby but there are no other dependencies.
 
 ### marathon-install
 
