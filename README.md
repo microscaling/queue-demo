@@ -22,7 +22,7 @@ Simple demo for showing how the [Microscaling Engine](https://github.com/microsc
 
 Full instructions for running the demo are at [app.microscaling.com](https://app.microscaling.com).
 
-[![](https://badge.imagelayers.io/microscaling/queue-demo:latest.svg)](https://imagelayers.io/?images=microscaling/queue-demo:latest 'Get your own badge on imagelayers.io')
+[![](https://imagelayers.io/badge/microscaling/queue-demo:latest.svg)](https://imagelayers.io/?images=microscaling/queue-demo:latest 'Get your own badge on imagelayers.io')
 
 Each Docker command is shown along with its environment variables and default values.
 
