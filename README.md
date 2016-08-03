@@ -22,7 +22,8 @@ Simple demo for showing how the [Microscaling Engine](https://github.com/microsc
 
 Full instructions for running the demo are at [app.microscaling.com](https://app.microscaling.com).
 
-[![](https://badge.imagelayers.io/microscaling/queue-demo:latest.svg)](https://imagelayers.io/?images=microscaling/queue-demo:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/microscaling/queue-demo.svg)](http://microbadger.com/images/microscaling/queue-demo "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/microscaling/queue-demo.svg)](http://microbadger.com/images/microscaling/queue-demo "Get your own version badge on microbadger.com")
 
 Each Docker command is shown along with its environment variables and default values.
 
