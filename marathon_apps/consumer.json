@@ -6,7 +6,7 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "quay.io/rossf7/acs-logging-test-analyze"
+            "image": "rgardler/acs-logging-test-analyze:latest"
         }
     },
     "env": {
@@ -16,8 +16,9 @@
         "AZURE_STORAGE_ACCOUNT_NAME": "__AZURE_STORAGE_ACCOUNT_NAME__",
         "AZURE_STORAGE_ACCOUNT_KEY": "__AZURE_STORAGE_ACCOUNT_KEY__",
         "AZURE_STORAGE_QUEUE_NAME": "__AZURE_STORAGE_QUEUE_NAME__",
+        "AZURE_STORAGE_SUMMARY_TABLE_NAME": "microscaling",
         "ANALYZER_KEEP_RUNNING": "true",
         "ANALYZER_SLEEP_TIME": "0.1",
-        "SLACK_WEBHOOK": "http://localhost"
+        "SLACK_WEBHOOK": "https://hooks.slack.com/services/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"
     }
 }

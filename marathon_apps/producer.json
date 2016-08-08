@@ -1,12 +1,12 @@
 {
     "id": "producer",
-    "instances": 3,
+    "instances": 6,
     "cpus": 0.05,
     "mem": 100,
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "rgardler/acs-logging-test-simulate"
+            "image": "rgardler/acs-logging-test-simulate:latest"
         }
     },
     "env": {

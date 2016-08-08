@@ -6,7 +6,7 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "quay.io/rossf7/microscaling:test",
+            "image": "microscaling/microscaling:latest",
             "forcePullImage": true
         }
     },
