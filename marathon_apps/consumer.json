@@ -6,7 +6,7 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "quay.io/rossf7/acs-logging-test-analyze"
+            "image": "rgardler/acs-logging-test-analyze:latest"
         }
     },
     "env": {

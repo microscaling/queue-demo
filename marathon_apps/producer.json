@@ -6,7 +6,7 @@
     "container": {
         "type": "DOCKER",
         "docker": {
-            "image": "rgardler/acs-logging-test-simulate"
+            "image": "rgardler/acs-logging-test-simulate:latest"
         }
     },
     "env": {
