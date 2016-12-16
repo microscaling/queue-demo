@@ -16,7 +16,7 @@ RUN apk update && \
 WORKDIR /app
 
 COPY . ./
-COPY marathon/ /apps/marathon/
+COPY marathon_apps/ /apps/marathon/
 
 ENTRYPOINT ["bundle", "exec", "rake"]
 
