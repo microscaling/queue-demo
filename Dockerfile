@@ -1,20 +1,16 @@
-FROM alpine:3.3
-MAINTAINER Ross Fairbanks <ross@microscaling.com>
-
-ENV RUBY_PACKAGES ruby ruby-libs ruby-io-console ruby-json ruby-bundler ruby-rake
-
-# Update and install all of the required packages.
-# At the end, remove the apk cache
-RUN apk update && \
-    apk upgrade && \
-    apk add $RUBY_PACKAGES && \
-    rm -rf /var/cache/apk/*
+FROM ruby:2.3-alpine
+MAINTAINER Ross Fairbanks "ross@microscaling.com"
 
 # Cache installing gems
 WORKDIR /tmp
 COPY Gemfile* /tmp/
 
-RUN bundle install
+# Update and install all of the required packages.
+# At the end, remove the apk cache
+RUN apk update && \
+    apk upgrade && \
+    bundle install && \
+    rm -rf /var/cache/apk/*
 
 # Create working directory.
 WORKDIR /app
