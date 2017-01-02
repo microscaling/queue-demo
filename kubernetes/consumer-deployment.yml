@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: consumer
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: consumer
+    spec:
+      containers:
+        - name: consumer
+          image: microscaling/queue-demo:latest
+          env:
+            - name: MSS_QUEUE_ENDPOINT
+              value: "nsq.default.svc.cluster.local:4150"
+          imagePullPolicy: IfNotPresent
