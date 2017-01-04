@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nsq
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nsq
+    spec:
+      containers:
+        - name: nsq
+          image: nsqio/nsq:v0.3.8
+          command:
+            - /nsqd
+          imagePullPolicy: IfNotPresent

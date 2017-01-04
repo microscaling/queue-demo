@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: producer
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: producer
+    spec:
+      containers:
+        - name: producer
+          image: microscaling/queue-demo:latest
+          command: ["bundle", "exec", "rake", "producer"]
+          env:
+            - name: MSS_QUEUE_ENDPOINT
+              value: "nsq.default.svc.cluster.local:4150"
+          imagePullPolicy: IfNotPresent

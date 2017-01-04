@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: remainder
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: remainder
+    spec:
+      containers:
+        - name: remainder
+          image: microscaling/microscaling-demo:latest
+          imagePullPolicy: IfNotPresent

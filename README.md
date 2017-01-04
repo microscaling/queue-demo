@@ -1,20 +1,8 @@
-# Microscaling Queue Demo
+# Microscaling Queue Demos
 
-Supporting demo images for the [Microscaling Engine](https://github.com/microscaling/microscaling) from [Microscaling Systems](https://microscaling.com). Used to show how the engine can scale a queue to maintain a target length.
+Supporting demo images and config for the [Microscaling Engine](https://github.com/microscaling/microscaling) from [Microscaling Systems](https://microscaling.com). Used to show how the engine can scale a queue to maintain a target length.
 
-## Marathon Demo with Azure Storage Queue
-
-The marathon-install and marathon-uninstall commands creates the Marathon demo apps using its REST API. See this [blog post](http://blog.microscaling.com/2016/05/microscaling-marathon-with-dcos-on.html) for more details. To run the commands you need Ruby but there are no other dependencies.
-
-### marathon-install
-
-Creates the demo apps using the Marathon REST API. You can register at [app.microscaling.com](https://app.microscaling.com) to get your install command.
-
-### marathon-uninstall
-
-Deletes the demo apps using the Marathon REST API.
-
-## Docker Demo with NSQ.
+## Docker with NSQ
 
 Used for the [microscaling/queue-demo](https://hub.docker.com/r/microscaling/queue-demo/) Docker image.
 
@@ -26,6 +14,44 @@ Full instructions for running the demo are at [app.microscaling.com](https://app
 [![](https://images.microbadger.com/badges/version/microscaling/queue-demo.svg)](http://microbadger.com/images/microscaling/queue-demo "Get your own version badge on microbadger.com")
 
 Each Docker command is shown along with its environment variables and default values.
+
+## Kubernetes with NSQ
+
+* Clone this repository
+* Register at [app.microscaling.com](https://app.microscaling.com) and get your user ID
+* Edit kubernetes/microscaling-deployment.yml and set your user ID
+* Create deployments and nsq service
+
+```
+$ kubectl create -f kubernetes/nsq-deployment.yml
+$ kubectl create -f kubernetes/nsq-svc.yml
+$ kubectl create -f kubernetes/consumer-deployment.yml
+$ kubectl create -f kubernetes/producer-deployment.yml
+$ kubectl create -f kubernetes/remainder-deployment.yml
+$ kubectl create -f kubernetes/microscaling-deployment.yml
+```
+
+* View the [demo](http://app.microscaling.com/metrics)
+* Remove the demo
+
+```
+$ kubectl delete deployment microscaling consumer producer remainder nsq
+$ kubectl delete service nsq
+```
+
+Note: your cluster will need the [kube-dns](https://github.com/kubernetes/kubernetes/tree/master/cluster/addons/dns) addon as its used for service discovery to access the NSQ service.
+
+## Marathon with Azure Storage Queue
+
+The marathon-install and marathon-uninstall commands creates the Marathon demo apps using its REST API. See this [blog post](http://blog.microscaling.com/2016/05/microscaling-marathon-with-dcos-on.html) for more details. To run the commands you need Ruby but there are no other dependencies.
+
+### marathon-install
+
+Creates the demo apps using the Marathon REST API. You can register at [app.microscaling.com](https://app.microscaling.com) to get your install command.
+
+### marathon-uninstall
+
+Deletes the demo apps using the Marathon REST API.
 
 ### consumer
 

@@ -18,6 +18,12 @@ WORKDIR /app
 COPY . ./
 COPY marathon_apps/ /apps/marathon/
 
+LABEL com.microscaling.is-scalable="True" \
+  com.microscaling.priority="1" \
+  com.microscaling.max-delta="2" \
+  com.microscaling.min-containers="1" \
+  com.microscaling.max-containers="10"
+
 ENTRYPOINT ["bundle", "exec", "rake"]
 
 # By default start the consumer to read messages from the queue.
