@@ -40,14 +40,20 @@ task :producer do |task|
 
     # Send messages in an infinite loop.
     loop do
-      message = SecureRandom.uuid
+      begin
+        message = SecureRandom.uuid
 
-      # Write a message to the queue.
-      puts "Sending: #{message}"
-      producer.write(message)
+        # Write a message to the queue.
+        puts "Sending: #{message}"
+        producer.write(message)
 
-      # Sleep after writing each message.
-      sleep_millis('MSS_PRODUCER_SLEEP_MS')
+        # Sleep after writing each message.
+        sleep_millis('MSS_PRODUCER_SLEEP_MS')
+  
+      rescue StandardError => e
+        puts "LOOP ERROR: #{e.inspect}"
+        puts e.backtrace
+      end
     end
 
   rescue SystemExit, Interrupt
@@ -76,13 +82,19 @@ task :consumer do |task|
 
     # Listen for messages in an infinite loop.
     loop do
-      # Pop a message off the queue.
-      msg = consumer.pop
-      puts "Receiving: #{msg.body}"
-      msg.finish
+      begin
+        # Pop a message off the queue.
+        msg = consumer.pop
+        puts "Receiving: #{msg.body}"
+        msg.finish
 
-      # Sleep after reading each message.
-      sleep_millis('MSS_CONSUMER_SLEEP_MS')
+        # Sleep after reading each message.
+        sleep_millis('MSS_CONSUMER_SLEEP_MS')
+
+      rescue StandardError => e
+        puts "LOOP ERROR: #{e.inspect}"
+        puts e.backtrace
+      end
     end
 
   rescue SystemExit, Interrupt
