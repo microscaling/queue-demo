@@ -17,7 +17,6 @@
         "AZURE_STORAGE_ACCOUNT_KEY": "__AZURE_STORAGE_ACCOUNT_KEY__",
         "AZURE_STORAGE_QUEUE_NAME": "__AZURE_STORAGE_QUEUE_NAME__",
         "ANALYZER_KEEP_RUNNING": "true",
-        "ANALYZER_SLEEP_TIME": "0.1",
-        "SLACK_WEBHOOK": "https://hooks.slack.com/services/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"
+        "ANALYZER_SLEEP_TIME": "0.1"
     }
 }
